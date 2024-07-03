@@ -1,0 +1,24 @@
+Name: 
+
+yAPP
+
+Idee:
+
+Aufnahme von Audios und Wiedergabe von Audios.
+Text Schreiben und zu Audio konvertieren.
+
+
+Rahmenbedingungen:
+
+- Accelerator
+- Aktuator
+- Externe Schnittstelle
+- Local Storage
+- Mehrere Seiten
+- Interaktion mit Systemapplikation
+- Icon
+
+
+Motivation:
+
+Um Audios festzuhalten und um nicht immer selbst sprechen zu müssen.

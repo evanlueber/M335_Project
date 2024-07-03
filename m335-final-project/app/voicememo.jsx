@@ -7,15 +7,16 @@ import { setAudioModeAsync } from "expo-av/build/Audio";
 export default function Voicememo() {
   const [recording, setRecording] = useState(false);
   const [recordings, setRecordings] = useState([]);
-  const [newRecording, setNewRecording] = useState("");
   const [message, setMessage] = useState("");
 
+  // Sound when recording starts
   async function playSound() {
     const sound = new Audio.Sound();
     await sound.loadAsync(require("../assets/ding.wav"));
     await sound.playAsync();
   }
 
+  // Start recording
   async function startRecording() {
     try {
       const permission = await Audio.requestPermissionsAsync();
@@ -38,6 +39,7 @@ export default function Voicememo() {
     }
   }
 
+  // Stop recording
   async function stopRecording() {
     await setAudioModeAsync({ allowsRecordingIOS: false, playsInSilentModeIOS: false});
     setRecording(undefined);
@@ -54,6 +56,7 @@ export default function Voicememo() {
     setRecordings(updatedRecordings);
   }
 
+  // Format duration of Recording
   function getDurationFormatted(millis) {
     const minutes = (millis / 1000) / 60;
     const minutesDisplay = Math.floor(minutes);
@@ -62,6 +65,7 @@ export default function Voicememo() {
     return `${minutesDisplay}:${secondsDisplay}`;
   }
 
+  // Get all recordings
   function getRecordingLines() {
     return recordings.map((recordingLine, index) => {
       return (
