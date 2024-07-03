@@ -5,6 +5,7 @@ import { Audio } from "expo-av";
 import { setAudioModeAsync } from "expo-av/build/Audio";
 import { storeData } from "../utils/LocalStorage";
 import * as Haptics from "expo-haptics";
+import { getData } from "../utils/LocalStorage";
 
 export default function Voicememo() {
   const [recording, setRecording] = useState(false);
@@ -69,13 +70,22 @@ export default function Voicememo() {
   }
   useEffect(() => {
     setRecording(false);
+    const getRecordings = async () => {
+      await getData("recordings").then((data) => {
+        if (data) {
+          setRecordings(JSON.parse(data));
+        }
+      });
+    };
+    getRecordings();
   }, []);
 
   return (
     <View className="flex-1 items-center justify-center bg-[#292929]">
       <Text className="text-white text-2xl mt-4">{message}</Text>
+      <Text className={"text-red-800 text-6xl shadow-md shadow-black mb-20 " + (recording ? "shadow-red-800" : "")}>yAPP</Text>
       <Pressable
-        className={"bg-[#1f1f1f] px-4 py-2 rounded-full mt-4 w-56 h-56 flex justify-center items-center shadow shadow-black " + (recording ? "bg-red-800" : "")}
+        className={"bg-[#1f1f1f] px-4 py-2 rounded-full mt-4 w-56 h-56 flex justify-center items-center shadow-md shadow-black " + (recording ? "bg-red-800 shadow-red-900" : "")}
         onPress={
           recording
             ? stopRecording

@@ -16,7 +16,7 @@ export default function Recordings() {
   };
   useEffect(() => {
     getRecordings();
-  }, []);
+  });
 
   const deleteRecording = async (index) => {
     let updatedRecordings = recordings.filter(
@@ -27,6 +27,13 @@ export default function Recordings() {
   };
   return (
     <View className="flex-1 items-center justify-center bg-[#292929]">
+      <Text
+        className=
+          "text-red-800 text-6xl shadow-md shadow-black absolute top-40 " 
+     
+      >
+        yAPP
+      </Text>
       {recordings.map((recordingLine, index) => {
         return (
           <View
@@ -40,7 +47,7 @@ export default function Recordings() {
               onPress={() => {
                 const sound = new Audio.Sound();
                 sound.loadAsync({ uri: recordingLine.file }).then(() => {
-                    sound.playAsync();
+                  sound.playAsync();
                 });
               }}
             >
