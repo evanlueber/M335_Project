@@ -1,8 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import FaIcon from "react-native-vector-icons/FontAwesome";
+import MaIcon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import VoicememoScreen from "../app/voicememo";
+import RecordingsScreen from "../app/recordings";
 
 const Tab = createBottomTabNavigator();
 
@@ -11,7 +13,7 @@ export default function TabBar() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: "#0000cc",
+        tabBarActiveTintColor: "#991b1b",
         tabBarInactiveTintColor: "gray",
         tabBarStyle: {
           backgroundColor: "black",
@@ -26,6 +28,15 @@ export default function TabBar() {
         options={{
           tabBarIcon: ({ color, size }) => (
             <FaIcon name="microphone" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Recordings"
+        component={RecordingsScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaIcon name="waveform" color={color} size={size} />
           ),
         }}
       />
