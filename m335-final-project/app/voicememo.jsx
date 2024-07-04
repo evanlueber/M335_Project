@@ -22,7 +22,7 @@ export default function Voicememo() {
           allowsRecordingIOS: true,
           playsInSilentModeIOS: true,
         });
-        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)
 
         const { recording } = await Audio.Recording.createAsync(
           Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY
@@ -44,7 +44,7 @@ export default function Voicememo() {
     });
     setRecording(undefined);
     await recording.stopAndUnloadAsync();
-    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)
 
     let updatedRecordings = [...recordings];
     const { sound, status } = await recording.createNewLoadedSoundAsync();
