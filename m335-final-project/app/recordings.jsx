@@ -33,8 +33,8 @@ export default function Recordings() {
   };
   return (
     <View className="flex-1 items-center justify-center bg-[#292929]">
-      <Text className="text-red-800 text-6xl shadow-md shadow-black pt-32 h-1/3">
-        yAPP
+      <Text className="text-red-800 text-5xl shadow-md shadow-black pt-32 h-1/3">
+        Aufnahmen
       </Text>
       <ScrollView className="w-full h-full">
         {recordings.map((recordingLine, index) => {

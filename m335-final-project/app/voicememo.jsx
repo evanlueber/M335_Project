@@ -53,7 +53,7 @@ export default function Voicememo() {
       sound: sound,
       duration: getDurationFormatted(status.durationMillis),
       file: recording.getURI(),
-      name: `Recording ${recordings.length + 1}`,
+      name: `Aufnahme ${recordings.length + 1}`,
     });
 
     setRecordings(updatedRecordings);
@@ -83,7 +83,7 @@ export default function Voicememo() {
   return (
     <View className="flex-1 items-center justify-center bg-[#292929]">
       <Text className="text-white text-2xl mt-4">{message}</Text>
-      <Text className={"text-red-800 text-6xl shadow-md shadow-black mb-20 " + (recording ? "shadow-red-800" : "")}>yAPP</Text>
+      <Text className={"text-red-800 text-5xl shadow-md shadow-black mb-20 " + (recording ? "shadow-red-800" : "")}>Audio</Text>
       <Pressable
         className={"bg-[#1f1f1f] px-4 py-2 rounded-full mt-4 w-56 h-56 flex justify-center items-center shadow-md shadow-black " + (recording ? "bg-red-800 shadow-red-900" : "")}
         onPress={
