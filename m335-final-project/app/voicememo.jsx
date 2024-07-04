@@ -57,7 +57,8 @@ export default function Voicememo() {
     });
 
     setRecordings(updatedRecordings);
-    await storeData("recordings", JSON.stringify(updatedRecordings));
+    console.log(updatedRecordings);
+    storeData("recordings", updatedRecordings);
   }
 
   // Format duration of Recording
@@ -73,8 +74,9 @@ export default function Voicememo() {
     const getRecordings = async () => {
       await getData("recordings").then((data) => {
         if (data) {
-          setRecordings(JSON.parse(data));
+          setRecordings(data);
         }
+      }).catch((error) => {
       });
     };
     getRecordings();

@@ -6,7 +6,7 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Speech from "expo-speech";
 import IoIcon from "react-native-vector-icons/Ionicons";
 import * as Haptics from "expo-haptics";
