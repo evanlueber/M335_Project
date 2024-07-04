@@ -33,7 +33,7 @@ export default function TabBar() {
         }}
       />
       <Tab.Screen
-        name="Recordings"
+        name="Aufnahmen"
         component={RecordingsScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
