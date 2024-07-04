@@ -5,6 +5,7 @@ import MaIcon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import VoicememoScreen from "../app/voicememo";
 import RecordingsScreen from "../app/recordings";
+import TextToSpeechScreen from "../app/TextToSpeech";
 
 const Tab = createBottomTabNavigator();
 
@@ -37,6 +38,19 @@ export default function TabBar() {
         options={{
           tabBarIcon: ({ color, size }) => (
             <MaIcon name="waveform" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="TextToSpeech"
+        component={TextToSpeechScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaIcon
+              name="robot-excited"
+              color={color}
+              size={size}
+            />
           ),
         }}
       />
